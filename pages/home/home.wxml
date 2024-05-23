@@ -1,0 +1,22 @@
+<!-- pages/index/index.wxml -->
+<view class="container">
+  <word-book-switch-card
+    title="人教版一年级起点"
+    bindchangeDictionary="handleChangeDictionary"
+    bindlearnWords="handleLearnWords"
+    bindreviewWords="handleReviewWords"
+    style="width: 100%;"
+  />
+  <statistics-card 
+  todayWords="{{50}}"
+  totalWords="{{500}}"
+  strangeWords="{{100}}"
+  difficultWords="{{80}}"
+  goodWords="{{200}}"
+  easyWords="{{120}}"
+  bindmore="handleMore"
+  style="width: 100%;margin-top: 5px;"
+/>
+
+
+</view>

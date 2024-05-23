@@ -1,0 +1,40 @@
+<view class="statistics-card">
+  <view class="card-header">
+    <view class="more-button" bindtap="onMore">
+      <image src="/images/more.svg" class="icon" />
+      <text>更多</text>
+    </view>
+  </view>
+  <view class="stats">
+    <view class="stat-row">
+      <view class="stat-item">
+        <text class="label">今日学习数</text>
+        <text class="value">{{todayWords}}</text>
+      </view>
+      <view class="stat-item">
+        <text class="label">总学习数</text>
+        <text class="value">{{totalWords}}</text>
+      </view>
+    </view>
+    <view class="stat-row">
+      <view class="stat-item">
+        <text class="label">陌生数量</text>
+        <text class="value">{{strangeWords}}</text>
+      </view>
+      <view class="stat-item">
+        <text class="label">困难数量</text>
+        <text class="value">{{difficultWords}}</text>
+      </view>
+    </view>
+    <view class="stat-row">
+      <view class="stat-item">
+        <text class="label">良好数量</text>
+        <text class="value">{{goodWords}}</text>
+      </view>
+      <view class="stat-item">
+        <text class="label">简单数量</text>
+        <text class="value">{{easyWords}}</text>
+      </view>
+    </view>
+  </view>
+</view>

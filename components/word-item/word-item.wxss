@@ -1,0 +1,52 @@
+.word-item {
+  width: 89%; /* 确保卡片宽度占满父容器 */
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.word-item.active {
+  transform: scale(0.98); /* 点击时缩放效果 */
+}
+
+.word-item.selected {
+  background-color: #ffcc66; /* 选中时变色 */
+  color: #402E32; /* 改变文本颜色 */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+}
+
+.word-item.selected .title {
+  color: #402E32; /* 改变标题颜色 */
+}
+
+.word-item.selected .icon {
+  filter: invert(1); /* 改变图标颜色 */
+}
+
+.word-item.selected progress {
+  width: 100%;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.content {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+progress {
+  width: 100%;
+}

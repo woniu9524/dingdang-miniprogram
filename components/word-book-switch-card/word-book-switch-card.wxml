@@ -1,0 +1,35 @@
+<view class="card">
+  <view class="header">
+    <text class="title">{{title}}</text>
+    <view wx:if="{{showChangeButton}}" class="change-dictionary" bindtap="onChangeDictionary">
+      <image src="/images/exchange.svg" class="icon" />
+      <text>更换词书</text>
+    </view>
+  </view>
+
+  <view class="lazy-dog-mode">
+    <text>懒狗模式</text>
+    <switch checked="{{lazyDogMode}}" bindchange="onLazyDogModeChange" />
+  </view>
+  <view class="stats">
+    <text class="stats-text">总单词数: {{wordCount}}</text>
+    <text class="stats-text">掌握单词数: {{masteredCount}}</text>
+  </view>
+  <view class="progress-container">
+    <progress percent="{{progress}}" show-info active></progress>
+  </view>
+
+  <van-cell title="{{sheetActiveName}}"  bindtap="onOpen" is-link />
+  <van-action-sheet 
+    show="{{showActionSheet}}" 
+    actions="{{actions}}" 
+    bind:close="onCloseActionSheet" 
+    bind:select="onSelectActionSheet" 
+    z-index="10000"
+  />
+  <!-- <van-divider/> -->
+  <view class="button-group">
+    <button class="button learn-button" bindtap="onLearnWords">学习</button>
+    <button class="button review-button" bindtap="onReviewWords">复习</button>
+  </view>
+</view>

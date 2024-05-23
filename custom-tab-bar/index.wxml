@@ -1,0 +1,6 @@
+<van-tabbar active="{{active}}" bind:change="onChange" safe-area-inset-bottom>
+  <van-tabbar-item icon="notes-o" data-path="/pages/wordbook/wordbook">词书</van-tabbar-item>
+  <van-tabbar-item icon="smile-o" data-path="/pages/reading/reading">阅读</van-tabbar-item>
+  <van-tabbar-item icon="bar-chart-o" data-path="/pages/statistics/statistics">统计</van-tabbar-item>
+  <van-tabbar-item icon="setting-o" data-path="/pages/settings/settings">设置</van-tabbar-item>
+</van-tabbar>

@@ -1,0 +1,7 @@
+<view class="word-item {{selected ? 'selected' : ''}} {{activeClass}}" bindtap="onTap" data-index="{{index}}">
+  <image class="icon" src="/images/book.svg"></image>
+  <view class="content">
+    <text class="title">{{title}}</text>
+    <progress percent="{{progress}}" show-info active activeColor="#20A0FF"/>
+  </view>
+</view>

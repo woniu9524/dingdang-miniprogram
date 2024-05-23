@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "list-mode-word-card":"/components/list-mode-word-card/list-mode-word-card",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-button": "@vant/weapp/button/index"
+  }
+}

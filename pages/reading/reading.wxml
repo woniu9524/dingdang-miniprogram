@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="button-container">
+    <button class="btn" bindtap="generateText">
+      <div class="hoverEffect">
+        <div>
+        </div>
+      </div>
+      <span class="text">Generate</span>
+    </button>
+    <button class="boton-elegante" bindtap="viewHistory">
+      <span class="text"></span>
+    </button>
+  </view>
+  <view class="spinner" wx:if="{{loading}}"></view>
+  <view class="result" wx:for="{{results}}" wx:key="index">
+    <rich-text class="english" nodes="{{item.English}}"></rich-text>
+    <rich-text class="chinese" nodes="{{item.Chinese}}"></rich-text>
+  </view>
+</view>

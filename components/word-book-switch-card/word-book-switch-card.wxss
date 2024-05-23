@@ -1,0 +1,113 @@
+.card {
+  background-color: #ffffff; /* 卡片背景颜色 */
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+  width: 100%; /* 卡片宽度 */
+  box-sizing: border-box;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  margin: 0 auto; /* 使卡片居中 */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px; /* 减少与标题的间距 */
+}
+
+.title {
+  font-size: 24px; /* 调整标题字体大小 */
+  font-weight: bold;
+  color: #333333; /* 设置标题字体颜色 */
+}
+
+.change-dictionary {
+  display: flex;
+  align-items: center;
+  background-color: #e0f7fa;
+  color: #007aff;
+  border-radius: 12px;
+  padding: 5px 10px; /* 调整按钮内边距 */
+  cursor: pointer;
+}
+
+.change-dictionary .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px; /* 增加与其他元素的间距 */
+}
+
+.stats-text {
+  font-size: 16px; /* 调整字体大小 */
+  color: #666666; /* 设置字体颜色 */
+}
+
+.lazy-dog-mode {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.lazy-dog-mode text {
+  font-size: 16px;
+  color: #333333; /* 设置字体颜色 */
+}
+
+.progress-container {
+  margin-bottom: 15px;
+}
+
+.progress-container progress {
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; /* 增加与标题的间距 */
+}
+
+.button {
+  flex: 1; /* 使按钮填满父容器 */
+  max-width: 180px; /* 限制按钮最大宽度 */
+  height: 40px; /* 调整按钮高度 */
+  border-radius: 12px;
+  background-color: #f0f0f0;
+  color: #000;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+  transition: background-color 0.3s, color 0.3s; /* 添加过渡效果 */
+  margin: 0 5px; /* 增加按钮之间的间距 */
+}
+
+.button:hover {
+  background-color: #e0e0e0; /* 添加按钮悬停效果 */
+}
+
+.learn-button {
+  background-color: #e0f7e9;
+  color: #00c853;
+  border: 1px solid #00c853;
+}
+
+.review-button {
+  background-color: #e0f2f9;
+  color: #2979ff;
+  border: 1px solid #2979ff;
+}
+
+
+.title van-icon {
+  margin-left: 10rpx; /* 调整图标与文字的间距 */
+}

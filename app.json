@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/wordbook/wordbook",
+    "pages/reading/reading",
+    "pages/wordbook/learn/learn",
+    "pages/wordbook/review/review",
+    "pages/home/home",
+    "pages/statistics/statistics",
+    "pages/settings/settings",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "叮当单词",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+
+
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-circle": "@vant/weapp/circle/index",
+    "van-switch": "@vant/weapp/switch/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-sticky": "@vant/weapp/sticky/index"
+  },
+
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/wordbook/wordbook",
+        "text": "词书"
+
+      },
+      {
+        "pagePath": "pages/reading/reading",
+        "text": "阅读"
+      },
+      {
+        "pagePath": "pages/statistics/statistics",
+        "text": "统计"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "设置"
+      }
+    ]
+  }
+
+}

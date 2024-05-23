@@ -1,0 +1,51 @@
+.container {
+  padding: 10px;
+}
+
+.list-container {
+  width: 100%;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ebebeb;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 10px; /* 圆角 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.stats {
+  flex: 1;
+  text-align: center;
+}
+
+.stats-title {
+  font-size: 14px;
+  color: #666;
+}
+
+.stats-number {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+.button-container {
+  flex: 1;
+  text-align: right;
+}

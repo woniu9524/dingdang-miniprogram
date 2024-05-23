@@ -1,0 +1,60 @@
+.statistics-card {
+  background-color: #ffffff; /* 卡片背景颜色 */
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+  width: 100%; /* 卡片宽度 */
+  box-sizing: border-box;
+  margin-bottom: 15px; /* 与其他元素的间距 */
+}
+
+.card-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px; /* 减少与内容的间距 */
+}
+
+.more-button {
+  display: flex;
+  align-items: center;
+  background-color: #e0f7fa;
+  color: #007aff;
+  border-radius: 12px;
+  padding: 5px 10px; /* 调整按钮内边距 */
+  cursor: pointer;
+}
+
+.more-button .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 48%;
+}
+
+.label {
+  font-size: 14px;
+  color: #999999;
+}
+
+.value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "word-book-switch-card": "/components/word-book-switch-card/word-book-switch-card",
+    "word-item": "/components/word-item/word-item"
+  }
+}

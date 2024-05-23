@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="toolbar">
+    <view class="checkbox-container">
+      <van-checkbox class="checkbox" value="{{hideTranslation}}" bind:change="onCheckboxChange">
+        隐藏翻译
+      </van-checkbox>
+    </view>
+    <view class="stats">
+      今日学习数: <text class="stats-number">{{todayLearnedCount}}</text>
+    </view>
+    <view class="button-container">
+      <van-button type="primary" round bind:click="onLearnMore">
+        再学一组
+      </van-button>
+    </view>
+  </view>
+
+  <view class="list-container">
+    <block wx:for="{{wordList}}" wx:key="word" wx:for-index="index">
+      <list-mode-word-card word="{{item.word}}" translation="{{item.translation}}" lazyTranslation="{{item.lazyTranslation}}" 
+      lazyMode="{{lazyMode}}" exampleSentence="{{item.sentence}}" translationVisible="{{!hideTranslation}}" sentenceTranslation="{{item.sentenceTranslation}}" masteryLevel="{{0}}" bind:delete="onDelete" bind:pronounce="onPronounce" bind:setMastery="onSetMastery" data-index="{{index}}" language="{{language}}" />
+    </block>
+  </view>
+  <van-toast id="van-toast" />
+</view>

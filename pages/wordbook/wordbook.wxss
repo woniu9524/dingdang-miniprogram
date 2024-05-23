@@ -1,0 +1,6 @@
+.container {
+  padding: 5px 5px;
+  width: 100%;
+  background-color: #f8f8f8; /* 设置背景颜色 */
+  box-sizing: border-box;
+}

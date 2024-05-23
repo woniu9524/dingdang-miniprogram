@@ -1,0 +1,35 @@
+<view class="word-card" bindtap="toggleExpand">
+  <view class="top-section">
+    <view class="left-button" bindtap="onDelete">
+      <van-icon name="delete" />
+    </view>
+    <view class="content">
+      <view class="text-content">
+        <view class="word">{{ word }}</view>
+        <view class="translation" wx:if="{{ translationVisible }}">{{ lazyMode ? lazyTranslation : translation }}</view>
+      </view>
+    </view>
+  </view>
+ 
+  <view class="button-row" wx:if="{{ isExpanded }}">
+    <van-button class="action-button" round plain color="#ff4d4f" bindtap="onSetMastery" data-level="1">陌生</van-button>
+    <van-button class="action-button" round plain color="#ff7a45" bindtap="onSetMastery" data-level="2">困难</van-button>
+    <van-button class="action-button" round plain color="#556B2F" bindtap="onSetMastery" data-level="3">良好</van-button>
+    <van-button class="action-button" round plain color="#73d13d" bindtap="onSetMastery" data-level="4">容易</van-button>
+    <van-button class="action-button" round plain color="#36cfc9" bindtap="onSetMastery" data-level="5">掌握</van-button>
+  </view>
+  <view class="example-sentence" wx:if="{{ isExpanded }}">
+    <view class="divider-dashed"></view>
+    <rich-text class="sentence" nodes="{{ highlightedExampleSentence }}"></rich-text>
+    <rich-text class="sentence-translation" nodes="{{ highlightedSentenceTranslation }}"></rich-text>
+  </view>
+  <view class="divider"></view>
+  <view class="bottom-section">
+    <view class="circle-container">
+      <van-circle value="{{ progress }}" text="{{ masteryLevel }}" size="30" layer-color="#eeeeee" color="{{ circleColor }}" />
+    </view>
+    <view class="right-button" catchtap="onPronounce">
+      <van-icon name="volume-o" />
+    </view>
+  </view>
+</view>

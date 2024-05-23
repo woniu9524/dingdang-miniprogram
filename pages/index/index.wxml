@@ -1,0 +1,12 @@
+<view class="content">
+  <block>
+    <button loading="{{loadingstatus}}" class="login" bindtap="loginReq">
+      <span class="text">授权登录</span>
+      <span class="blob"></span>
+      <span class="blob"></span>
+      <span class="blob"></span>
+      <span class="blob"></span>
+    </button>
+    <view style="width: 100%;height: 30px;"></view>
+  </block>
+</view>

@@ -1,0 +1,26 @@
+<view class="container">
+  <word-book-switch-card 
+    title="{{activeBook.title}}" 
+    showChangeButton="{{false}}" 
+    lazyDogMode="{{activeBook.lazyMode}}" 
+    wordCount="{{activeBook.wordCount}}"
+    masteredCount="{{activeBook.masteredCount}}"
+    bind:onLazyDogModeChange="handleOnLazyDogModeChange" 
+    bind:learnWords="handelLearnWords" 
+    bind:reviewWords="handelReviewWords" 
+    progress="{{activeBook.progress}}" 
+    language="{{activeBook.language}}"
+    style="width: 100%;" 
+  />
+  <view style="width: 100%;">
+    <block wx:for="{{wordList}}" wx:key="index">
+      <word-item 
+        title="{{item.title}}" 
+        progress="{{item.progress}}" 
+        selected="{{item.active}}" 
+        index="{{index}}" 
+        bind:select="onSelect" 
+      />
+    </block>
+  </view>
+</view>
