@@ -1,2 +1,35 @@
-<!--pages/settings/settings.wxml-->
-<text>pages/settings/settings.wxml</text>
+<view class="container">
+  <van-cell-group>
+    <van-cell title="退出登录" is-link bind:click="onLogout" class="logout-cell"/>
+  </van-cell-group>
+  <view class="introduction">
+    <view class="section">
+      <view class="section-title">使用流程：</view>
+      <view class="section-content">选择一本词书，打开中文标注功能（如小说），系统将自动匹配并显示单词。英文标注处理方式类似。</view>
+      <view class="section-content">在小程序中复习已浏览过的单词。</view>
+    </view>
+    <view class="section">
+      <view class="section-title">单词评估：</view>
+      <view class="section-content">共有六个选项，其中点击删除图标后，该单词将不再被复习。</view>
+      <view class="section-content">复习时，只在第一次选择记录到后台，后续将重复在本地出现直至你认为它>"良好"</view>
+    </view>
+    <view class="section">
+      <view class="section-title">懒狗模式：</view>
+      <view class="section-content">显示每个单词的最常用释义，以便更轻松地记忆。</view>
+    </view>
+    <view class="section">
+      <view class="section-title">为什么默认会有已经掌握的单词：</view>
+      <view class="section-content">因为我选取了一些单词作为停用词，这些是特别简单的。</view>
+    </view>
+    <view class="section">
+      <view class="section-title">注意事项：</view>
+      <view class="section-content">本平台的单词翻译由AI生成或AI清洗，可能存在不准确之处。使用时请加以甄别。</view>
+      <view class="section-content">小程序适合回顾浏览过的单词，但不适合作为主要的背单词工具。</view>
+    </view>
+    <view class="section">
+      <view class="section-title">联系方式：</view>
+      <view class="section-content">网站：<text class="link">www.dingduang.fun</text></view>
+      <view class="section-content">邮箱：<text class="link">952490637@qq.com</text></view>
+    </view>
+  </view>
+</view>

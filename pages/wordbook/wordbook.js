@@ -12,7 +12,6 @@ Page({
       masteredCount: 0,
       wordCount: 0,
       bookNo: undefined,
-      language:'en'
     }
   },
 
@@ -37,17 +36,14 @@ Page({
 
   handelLearnWords() {
     const lazy=this.data.activeBook.lazyMode;
-    const language=this.data.activeBook.language;
     wx.navigateTo({
-      url: `/pages/wordbook/learn/learn?lazyMode=${lazy}&language=${language}`,
+      url: `/pages/wordbook/learn/learn?lazyMode=${lazy}`,
     });
   },
 
   handelReviewWords() {
-    const lazy=this.data.activeBook.lazyMode;
-    const language=this.data.activeBook.language;
     wx.navigateTo({
-      url: `/pages/wordbook/review/review?lazyMode=${lazy}&language=${language}`,
+      url: '/pages/wordbook/review/review',
     });
   },
 
@@ -71,6 +67,7 @@ Page({
           };
           return newItem;
         });
+
         this.setData({
           wordList: updatedList,
           activeBook: activeBook

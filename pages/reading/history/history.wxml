@@ -1,0 +1,15 @@
+<view>
+  <van-cell title="选择日期" value="{{ day }}" is-link bind:click="showDatePicker" />
+  <van-popup show="{{ showPicker }}" position="bottom" bind:close="onPickerCancel">
+    <van-picker show-toolbar title="选择日期" columns="{{ historyDay }}" value="{{ day }}" bind:confirm="onPickerConfirm" />
+  </van-popup>
+
+  <view wx:for="{{ results }}" wx:key="index" class="result-item">
+    <view class="text english">
+      <rich-text nodes="{{ item.English }}"></rich-text>
+    </view>
+    <view class="text chinese">
+      <rich-text nodes="{{ item.Chinese }}"></rich-text>
+    </view>
+  </view>
+</view>

@@ -6,7 +6,7 @@
       </van-checkbox>
     </view>
     <view class="stats">
-      复习: <text class="stats-number">{{todayReviewCount}}/{{needReviewCount}}</text>
+      还需复习: <text class="stats-number">{{needReviewCount}}</text>
     </view>
     <view class="button-container">
       <van-button type="primary" round bind:click="onLearnMore">
@@ -16,7 +16,7 @@
   </view>
 
   <view class="list-container">
-    <block wx:for="{{wordList}}" wx:key="word" wx:for-index="index">
+    <block wx:for="{{currentWordList}}" wx:key="word" wx:for-index="index">
       <list-mode-word-card word="{{item.word}}" translation="{{item.translation}}" lazyTranslation="{{item.lazyTranslation}}" 
       lazyMode="{{lazyMode}}" exampleSentence="{{item.sentence}}" translationVisible="{{!hideTranslation}}" sentenceTranslation="{{item.sentenceTranslation}}" masteryLevel="{{item.lastGrade}}" bind:delete="onDelete" bind:pronounce="onPronounce" bind:setMastery="onSetMastery" data-index="{{index}}" />
     </block>

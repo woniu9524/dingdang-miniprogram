@@ -29,6 +29,14 @@ Page({
     this.getTabBar().setData({active: 3});
   },
 
+  onLogout() {
+    // 这里添加退出登录的逻辑，例如清除缓存，跳转到登录页面等
+    wx.clearStorageSync();
+    wx.reLaunch({
+      url: '/pages/index/index'
+    });
+  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

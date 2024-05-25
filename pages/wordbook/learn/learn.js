@@ -77,7 +77,7 @@ Page({
     const index = event.currentTarget.dataset.index;
     const wordList = this.data.wordList;
  
-    axiosApi.rateWord(wordList[index].word,5).then((res)=>{
+    axiosApi.rateWord(wordList[index].word,6).then((res)=>{
       wordList.splice(index, 1);
       this.setData({ wordList });
       this.setData({todayLearnedCount:this.data.todayLearnedCount+1})

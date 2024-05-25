@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/wordbook/wordbook",
     "pages/reading/reading",
+    "pages/reading/history/history",
     "pages/wordbook/learn/learn",
     "pages/wordbook/review/review",
     "pages/home/home",
@@ -35,7 +36,8 @@
     "van-switch": "@vant/weapp/switch/index",
     "van-toast": "@vant/weapp/toast/index",
     "van-action-sheet": "@vant/weapp/action-sheet/index",
-    "van-sticky": "@vant/weapp/sticky/index"
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-calendar": "@vant/weapp/calendar/index"
   },
 
   "tabBar": {

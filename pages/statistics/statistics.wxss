@@ -1,1 +1,12 @@
-/* pages/statistics/statistics.wxss */
+.charts {
+  margin: 5px 0;
+  width: 750rpx;
+  height: 550rpx;
+}
+
+.chart-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10rpx;
+}

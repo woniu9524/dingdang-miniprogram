@@ -1,0 +1,35 @@
+.container {
+  padding: 10px;
+  background-color: #f5f5f5; /* 轻微的背景色增加阅读舒适度 */
+}
+
+.result-item {
+  padding: 15px;
+  margin-top: 10px;
+  border-bottom: 1px solid #e0e0e0; /* 使用更细致的灰色边框 */
+  background-color: #ffffff; /* 亮色背景提高阅读清晰度 */
+}
+
+.text {
+  margin: 12px 0; /* 增加上下间距，给文本“呼吸”的空间 */
+  line-height: 1.8; /* 增加行高提升阅读体验 */
+  font-size: 16px; /* 统一字体大小以提升可读性 */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* 使用适合长文阅读的字体 */
+  color: #333; /* 深色字体增加对比度，易于阅读 */
+}
+
+.text.english {
+  font-family: Arial, sans-serif; /* 英文使用适合阅读的字体 */
+}
+
+.text.chinese {
+  font-family: "Microsoft YaHei", sans-serif; /* 中文使用更适合显示的字体 */
+}
+
+.highlight {
+  background-color: #e8f5e9; /* 柔和的绿色背景 */
+  padding: 2px 4px;
+  border-radius: 4px;
+  box-shadow: none; /* 移除阴影效果 */
+  transition: background-color 0.3s ease;
+}

@@ -4,13 +4,12 @@ import Toast from '@vant/weapp/toast/toast';
 Page({
   data: {
     hideTranslation: true, // 隐藏翻译开关
-    todayReviewCount: 0, // 今日复习计数
     needReviewCount: 0, // 需要复习的单词总数
     pageSize: 10, // 每次加载的单词数量
     lazyMode: false, // 懒加载模式
-    wordList: [], // 当前显示的单词列表
     allWords: [], // 本地存储的所有单词列表
-    language:'en',
+    currentWordList: [], // 当前显示的单词列表
+    language: 'en',
   },
 
   onLoad(options) {
@@ -21,53 +20,58 @@ Page({
       });
     }
     this.loadLocalReviewList(); // 加载本地复习列表
-    axiosApi.getTodayLearnCount().then((res) => {
-      this.setData({
-        todayReviewCount: res.data.review_count || 0
-      });
-    });
   },
 
   loadLocalReviewList() {
     try {
-      const allWords = wx.getStorageSync('localReviewList') || [];
-      this.setData({
-        allWords,
-        needReviewCount: allWords.length
-      });
-      this.loadMoreWords(); // 初始加载一组单词
+      const localData = wx.getStorageSync('localReviewList') || {};
+      const currentDate = new Date().toDateString();
+      if (localData.date !== currentDate) {
+        this.refreshNeedLearnList(); // 如果不是当日的数据，刷新需要复习的列表
+      } else {
+        const allWords = localData.words || [];
+        this.setData({
+          allWords,
+          needReviewCount: allWords.length
+        });
+        this.updateCurrentWordList(); // 更新当前显示的单词列表
+      }
     } catch (e) {
       this.refreshNeedLearnList(); // 如果本地没有数据，刷新需要复习的列表
     }
   },
 
   saveLocalReviewList(allWords) {
-    wx.setStorageSync('localReviewList', allWords);
+    const currentDate = new Date().toDateString();
+    const localData = {
+      date: currentDate,
+      words: allWords
+    };
+    wx.setStorageSync('localReviewList', localData);
+    this.setData({ needReviewCount: allWords.length }); // 更新需要复习的单词总数
   },
 
   refreshNeedLearnList() {
     axiosApi.getWordReviewToday().then(res => {
+      const allWords = res.data.map(word => ({
+        ...word,
+        evaluated: false // 添加字段标记是否已评估
+      }));
       this.setData({
-        allWords: res.data,
-        needReviewCount: res.data.length
+        allWords,
+        needReviewCount: allWords.length
       });
-      this.saveLocalReviewList(res.data);
-      this.loadMoreWords(); // 初始加载一组单词
+      this.saveLocalReviewList(allWords);
+      this.updateCurrentWordList(); // 更新当前显示的单词列表
     });
   },
 
-  loadMoreWords() {
-    const { allWords, pageSize, wordList } = this.data;
-    if (allWords.length > 0) {
-      const newWords = allWords.slice(0, pageSize); // 获取新的一组单词
-      this.setData({
-        wordList: [...wordList, ...newWords], // 添加到当前单词列表
-        allWords: allWords.slice(pageSize) // 更新剩余的所有单词列表
-      });
-      this.saveLocalReviewList(this.data.allWords); // 保存更新后的所有单词列表到本地
-    } else {
-      Toast('没有更多的单词了~');
-    }
+  updateCurrentWordList() {
+    const { allWords, pageSize } = this.data;
+    const currentWordList = allWords.slice(0, pageSize);
+    this.setData({
+      currentWordList
+    });
   },
 
   onCheckboxChange(event) {
@@ -77,47 +81,63 @@ Page({
   },
 
   onLearnMore() {
-    if (this.data.wordList.length > 0) {
+    if (this.data.currentWordList.length > 0) {
       Toast('先学完这组哦~');
       return;
     }
-    this.loadMoreWords(); // 加载新的一组单词
+    this.updateCurrentWordList(); // 加载新的一组单词
   },
 
   onDelete(event) {
     const index = event.currentTarget.dataset.index;
-    const wordList = this.data.wordList;
-    const { allWords } = this.data;
-
-    axiosApi.rateWord(wordList[index].word, 5).then(() => {
-      wordList.splice(index, 1); // 删除已复习的单词
-      this.setData({
-        wordList,
-        todayReviewCount: this.data.todayReviewCount + 1
-      });
-      this.saveLocalReviewList(allWords); // 保存更新后的单词列表到本地
+    const currentWords = this.data.currentWordList;
+    const word = currentWords[index].word;
+    axiosApi.rateWord(word, 6).then(() => {
+      this.processWordEvaluation(currentWords[index], 6, index);
     });
-  },
-
-  onPronounce(event) {
-    const word = event.currentTarget.dataset.word;
-    // 调用发音功能
   },
 
   onSetMastery(event) {
     const level = event.detail.level;
     const index = event.target.dataset.index;
-    const wordList = this.data.wordList;
-    const { allWords } = this.data;
+    const currentWords = this.data.currentWordList;
+    if(!currentWords.evaluated){
+      axiosApi.rateWord(currentWords.word,level);
+    }
+    const updatedWord = { ...currentWords[index], lastGrade: level };
+    updatedWord.evaluated = true;
 
-    axiosApi.rateWord(wordList[index].word, level).then(() => {
-      wordList[index].lastGrade = level; // 更新单词的掌握等级
-      wordList.splice(index, 1); // 删除已复习的单词
-      this.setData({
-        wordList,
-        todayReviewCount: this.data.todayReviewCount + 1
-      });
-      this.saveLocalReviewList(allWords); // 保存更新后的单词列表到本地
+    this.processWordEvaluation(updatedWord, level, index);
+  },
+
+  processWordEvaluation(updatedWord, level, index) {
+    let { allWords, currentWordList, needReviewCount } = this.data;
+
+    // 从 currentWordList 中移除评估过的单词
+    currentWordList.splice(index, 1);
+
+    // 从 allWords 中移除评估过的单词
+    const allWordsIndex = allWords.findIndex(word => word.word === updatedWord.word);
+    allWords.splice(allWordsIndex, 1);
+
+    if (level < 4) {
+      // 评估等级 < 4，将单词移动到 allWords 的末尾
+      allWords.push(updatedWord);
+    } else {
+      // 评估等级 >= 4，减少 needReviewCount
+      needReviewCount--;
+    }
+
+    this.setData({
+      allWords,
+      currentWordList,
+      needReviewCount // 更新需要复习的单词总数
     });
+
+    this.saveLocalReviewList(allWords); // 保存更新后的单词列表到本地
+
+    if (currentWordList.length === 0) {
+      //this.updateCurrentWordList(); // 如果当前单词列表为空，加载更多单词
+    }
   }
 });

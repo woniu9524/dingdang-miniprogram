@@ -1,2 +1,8 @@
-<!--pages/statistics/statistics.wxml-->
-<text>pages/statistics/statistics.wxml</text>
+<view class="charts">
+  <view class="chart-title" style="margin-top: 20px;">单词掌握情况</view>
+  <canvas canvas-id="roseChart" id="roseChart" class="charts" bindtouchend="tap"/>
+</view>
+<view class="charts">
+  <view class="chart-title">单词学习历史</view>
+  <canvas canvas-id="areaChart" id="areaChart" class="charts" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"/>
+</view>

@@ -60,7 +60,42 @@ const getGenerationText = ()=> {
   }
 };
 
+const getHistoryRecentDays = ()=> {
+  try {
+    return request.get(`/v1/wordbook/history/recentDays`);
+  } catch (error) {
+    console.error( error);
+    throw error; // 或者处理错误
+  }
+};
 
+const getHistoryByDay = (day)=> {
+  try {
+    return request.get(`/v1/wordbook/history/data?day=${day}`);
+  } catch (error) {
+    console.error( error);
+    throw error; // 或者处理错误
+  }
+};
+  
+// 获取单词学习历史
+const getWordLearnHistory = ()=> {
+  try {
+    return request.get(`/v1/wordbook/wordHistory/list`);
+  } catch (error) {
+    console.error( error);
+    throw error; // 或者处理错误
+  }
+};
+// 获取单词掌握情况
+const getWordMastery = ()=> {
+  try {
+    return request.get(`/v1/wordbook/wordMastery`);
+  } catch (error) {
+    console.error( error);
+    throw error; // 或者处理错误
+  }
+};
 module.exports = {
   getWordbookList,
   usWordBook,
@@ -68,5 +103,9 @@ module.exports = {
   rateWord,
   getWordReviewToday,
   getTodayLearnCount,
-  getGenerationText
+  getGenerationText,
+  getHistoryRecentDays,
+  getHistoryByDay,
+  getWordMastery,
+  getWordLearnHistory
 };

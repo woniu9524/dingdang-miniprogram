@@ -9,7 +9,7 @@ Page({
     var that = this;
     //wx.clearStorage()
     var scene = decodeURIComponent(query.scene)
-    //scene='1244444444445555'
+    //scene='171662364860193914'
     if (scene == 'undefined') {
       // 普通登录
       that.setData({
