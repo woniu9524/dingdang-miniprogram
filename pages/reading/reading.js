@@ -17,8 +17,8 @@ Page({
     axiosApi.getGenerationText().then(res => {
       if (res.code == 200) {
         const highlightedData = res.data.map(item => ({
-          English: this.highlightText(item.English),
-          Chinese: this.highlightText(item.Chinese)
+          original: this.highlightText(item.original),
+          translation: this.highlightText(item.translation)
         }));
         this.setData({
           results: highlightedData,

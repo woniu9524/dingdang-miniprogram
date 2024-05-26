@@ -15,10 +15,10 @@
 
   <view wx:for="{{ results }}" wx:key="index" class="result-item">
     <view class="text english">
-      <rich-text nodes="{{ item.English }}"></rich-text>
+      <rich-text nodes="{{ item.original }}"></rich-text>
     </view>
     <view class="text chinese">
-      <rich-text nodes="{{ item.Chinese }}"></rich-text>
+      <rich-text nodes="{{ item.translation }}"></rich-text>
     </view>
   </view>
   <van-toast id="van-toast" />

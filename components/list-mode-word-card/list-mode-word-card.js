@@ -14,7 +14,7 @@ Component({
     },
     lazyMode: {
       type: Boolean,
-      value: ''
+      value: false
     },
     masteryLevel: {
       type: Number,

@@ -33,17 +33,27 @@ Page({
       this.refreshWordBook();
     });
   },
+  handleOnLazyDogModeChange(e){
+    const activeBook=this.data.activeBook;
+    activeBook.lazyMode=e.detail.value;
+    this.setData({
+      activeBook:activeBook
+    })
+  },
 
   handelLearnWords() {
     const lazy=this.data.activeBook.lazyMode;
+    console.log(lazy)
     wx.navigateTo({
       url: `/pages/wordbook/learn/learn?lazyMode=${lazy}`,
     });
   },
 
   handelReviewWords() {
+    const lazy=this.data.activeBook.lazyMode;
+    console.log(lazy)
     wx.navigateTo({
-      url: '/pages/wordbook/review/review',
+      url: `/pages/wordbook/review/review?lazyMode=${lazy}`,
     });
   },
 

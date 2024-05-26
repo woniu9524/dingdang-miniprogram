@@ -47,8 +47,8 @@ Page({
     axiosApi.getHistoryByDay(day).then(res => {
       if (res.code === 200) {
         const highlightedData = res.data.map(item => ({
-          English: this.highlightText(item.English),
-          Chinese: this.highlightText(item.Chinese)
+          original: this.highlightText(item.original),
+          translation: this.highlightText(item.translation)
         }));
         this.setData({
           results: highlightedData
@@ -58,6 +58,7 @@ Page({
   },
 
   highlightText(text) {
+    console.log(text)
     return text.replace(/<([^>]+)>/g, '<span class="highlight">$1</span>');
   }
 });
