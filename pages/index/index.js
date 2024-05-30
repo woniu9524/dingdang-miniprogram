@@ -4,6 +4,7 @@ Page({
   data: {
     sceneCode: '',
     useScene: true,
+    loginMessage:'登录'
   },
   onLoad(query) {
     var that = this;
@@ -25,6 +26,7 @@ Page({
         })
       }
     } else {
+      this.data.loginMessage='授权登录'
       that.setData({
         sceneCode: scene,
       })

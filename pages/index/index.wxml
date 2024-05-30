@@ -1,7 +1,7 @@
 <view class="content">
   <block>
     <button loading="{{loadingstatus}}" class="login" bindtap="loginReq">
-      <span class="text">授权登录</span>
+      <span class="text">{{loginMessage}}</span>
       <span class="blob"></span>
       <span class="blob"></span>
       <span class="blob"></span>

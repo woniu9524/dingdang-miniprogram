@@ -101,8 +101,12 @@ Page({
     const level = event.detail.level;
     const index = event.target.dataset.index;
     const currentWords = this.data.currentWordList;
-    if(!currentWords.evaluated){
-      axiosApi.rateWord(currentWords.word,level);
+
+    const currentWord = currentWords[index].word;
+
+    
+    if(!currentWord.evaluated){
+      axiosApi.rateWord(currentWord,level);
     }
     const updatedWord = { ...currentWords[index], lastGrade: level };
     updatedWord.evaluated = true;
