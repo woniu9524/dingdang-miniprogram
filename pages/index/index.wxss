@@ -1,6 +1,6 @@
 .content {
   width: 90%;
-  margin: 40% auto;
+  margin: 30% auto;
   background: #fff;
   border-radius: 10px;
 }
@@ -90,4 +90,126 @@
 
 .login:active {
   border: 2px solid white;
+}
+
+
+
+/* 模态框样式 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 80%;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: modalShow 0.3s;
+}
+
+.modal-header {
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-body {
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.cancel-button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid #e5e5e5;
+}
+
+.confirm-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.confirm-button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid #4CAF50;
+}
+
+/* 动画效果 */
+@keyframes modalShow {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+.feature-intro {
+  margin-bottom: 20px; /* 与登录部分保持一定距离 */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9; /* 使用较浅的背景色 */
+  border: 1px solid #e5e5e5; /* 添加边框 */
+}
+
+.intro-header {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.intro-body {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.intro-body view {
+  margin-bottom: 10px;
+}
+
+.intro-body text:first-child {
+  font-weight: bold; /* 功能标题加粗 */
 }

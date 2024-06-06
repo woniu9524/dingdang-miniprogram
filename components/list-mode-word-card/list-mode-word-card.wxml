@@ -11,13 +11,19 @@
     </view>
   </view>
  
-  <view class="button-row" wx:if="{{ isExpanded }}">
-    <van-button class="action-button" round plain color="#ff4d4f" bindtap="onSetMastery" data-level="1">陌生</van-button>
-    <van-button class="action-button" round plain color="#ff7a45" bindtap="onSetMastery" data-level="2">困难</van-button>
-    <van-button class="action-button" round plain color="#556B2F" bindtap="onSetMastery" data-level="3">良好</van-button>
-    <van-button class="action-button" round plain color="#73d13d" bindtap="onSetMastery" data-level="4">容易</van-button>
-    <van-button class="action-button" round plain color="#36cfc9" bindtap="onSetMastery" data-level="5">掌握</van-button>
-  </view>
+
+    <view wx:if="{{ !hasEvaluate&&isExpanded }}" class="button-row">
+      <van-button class="action-button" round plain color="#ff4d4f" bindtap="onSetMastery" data-level="1">陌生</van-button>
+      <van-button class="action-button" round plain color="#ff7a45" bindtap="onSetMastery" data-level="2">困难</van-button>
+      <van-button class="action-button" round plain color="#556B2F" bindtap="onSetMastery" data-level="3">良好</van-button>
+      <van-button class="action-button" round plain color="#73d13d" bindtap="onSetMastery" data-level="4">容易</van-button>
+      <van-button class="action-button" round plain color="#36cfc9" bindtap="onSetMastery" data-level="5">掌握</van-button>
+    </view>
+    <view wx:if="{{ hasEvaluate&&isExpanded }}" class="button-row">
+      <van-button class="action-button" round plain color="#36cfc9" bindtap="onSetMastery" data-level="1">模糊</van-button>
+      <van-button class="action-button" round plain color="#36cfc9" bindtap="onSetMastery" data-level="5">熟悉</van-button>
+    </view>
+
   <view class="example-sentence" wx:if="{{ isExpanded }}">
     <view class="divider-dashed"></view>
     <rich-text class="sentence" nodes="{{ highlightedExampleSentence }}"></rich-text>

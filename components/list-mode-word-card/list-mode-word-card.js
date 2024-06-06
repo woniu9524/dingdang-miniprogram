@@ -32,9 +32,13 @@ Component({
       type: String,
       value: ''
     },
-    language:{
+    language: {
       type: String,
       value: ''
+    },
+    hasEvaluate: {
+      type: Boolean,
+      value: false
     }
   },
   data: {
@@ -74,8 +78,7 @@ Component({
     },
     onPronounce(event) {
       var audioUrl = `https://dict.youdao.com/dictvoice?audio=${this.data.word}&type=1`;
-      console.log(this.data.language)
-      if(this.data.language=='jp'){
+      if(this.data.language == 'jp'){
         audioUrl = `https://dict.youdao.com/dictvoice?le=jap&audio=${this.data.word}&type=3`;
       }
       this.data.audioContext.src = audioUrl;

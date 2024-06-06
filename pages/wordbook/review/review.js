@@ -101,10 +101,7 @@ Page({
     const level = event.detail.level;
     const index = event.target.dataset.index;
     const currentWords = this.data.currentWordList;
-
     const currentWord = currentWords[index].word;
-
-    
     if(!currentWord.evaluated){
       axiosApi.rateWord(currentWord,level);
     }

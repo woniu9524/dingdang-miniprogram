@@ -1,17 +1,18 @@
 const app = getApp()
 const constants = require('../../utils/constants')
+
 Page({
   data: {
     sceneCode: '',
     useScene: true,
-    loginMessage:'登录'
+    loginMessage: '登录',
+    showModal: false ,// 控制模态框显示隐藏
   },
   onLoad(query) {
     var that = this;
-    //wx.clearStorage()
-    var scene = decodeURIComponent(query.scene)
-    //scene='171662364860193914'
-    if (scene == 'undefined') {
+    var scene = query.scene ? decodeURIComponent(query.scene.toString()):undefined;
+    // scene='171749494658415207'
+    if (scene == undefined) {
       // 普通登录
       that.setData({
         sceneCode: '',
@@ -20,24 +21,44 @@ Page({
       // 如果有token直接跳到workbook页面
       const token = wx.getStorageSync('token');
       if (token) {
-        // TOOD 校验token
+        // TODO 校验token
         wx.switchTab({
           url: '/pages/wordbook/wordbook'
         })
       }
     } else {
-      this.data.loginMessage='授权登录'
       that.setData({
+        loginMessage: '授权登录',
         sceneCode: scene,
       })
     }
+  },
 
+  // 显示授权模态框
+  showAuthModal: function () {
+    this.setData({
+      showModal: true
+    });
+  },
+
+  // 取消授权
+  cancelAuth: function () {
+    this.setData({
+      showModal: false
+    });
+  },
+
+  // 确认授权
+  confirmAuth: function () {
+    this.setData({
+      showModal: false
+    });
+    this.loginReq(); // 调用登录请求
   },
 
   // 点击授权登录
   loginReq: function () {
     var that = this;
-    console.log("xxxx");
     wx.login({
       success(res) {
         if (res.code) {

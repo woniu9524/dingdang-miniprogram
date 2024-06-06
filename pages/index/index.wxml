@@ -1,6 +1,29 @@
 <view class="content">
-  <block>
-    <button loading="{{loadingstatus}}" class="login" bindtap="loginReq">
+
+<!-- 功能介绍部分 -->
+<view class="feature-intro">
+    <view class="intro-body">
+      <view>
+        <text>学习单词：</text>
+        <text>提供丰富的单词库。</text>
+      </view>
+      <view>
+        <text>复习单词：</text>
+        <text>基于间隔算法的复习策略</text>
+      </view>
+      <view>
+        <text>阅读文本：</text>
+        <text>通过阅读由复习单词构成的文本，加深单词的理解和记忆。</text>
+      </view>
+      <view>
+        <text>学习统计：</text>
+        <text>详细的学习统计。</text>
+      </view>
+    </view>
+  </view>
+
+  <block wx:if="{{!showModal}}">
+    <button loading="{{loadingstatus}}" class="login" bindtap="showAuthModal">
       <span class="text">{{loginMessage}}</span>
       <span class="blob"></span>
       <span class="blob"></span>
@@ -9,4 +32,20 @@
     </button>
     <view style="width: 100%;height: 30px;"></view>
   </block>
+
+<!-- 授权提示模态框 -->
+<view wx:if="{{showModal}}" class="modal">
+  <view class="modal-content">
+    <view class="modal-header">登录授权</view>
+    <view class="modal-body">
+      登录需要获取您的OpenID作为唯一标识。
+    </view>
+    <view class="modal-footer">
+      <button class="cancel-button" bindtap="cancelAuth">拒绝</button>
+      <button class="confirm-button" bindtap="confirmAuth">允许</button>
+    </view>
+  </view>
 </view>
+</view>
+
+

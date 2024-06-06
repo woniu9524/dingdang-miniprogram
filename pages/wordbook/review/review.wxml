@@ -18,7 +18,7 @@
   <view class="list-container">
     <block wx:for="{{currentWordList}}" wx:key="word" wx:for-index="index">
       <list-mode-word-card word="{{item.word}}" translation="{{item.translation}}" lazyTranslation="{{item.lazyTranslation}}" 
-      lazyMode="{{lazyMode}}" exampleSentence="{{item.sentence}}" translationVisible="{{!hideTranslation}}" sentenceTranslation="{{item.sentenceTranslation}}" masteryLevel="{{item.lastGrade}}" bind:delete="onDelete" bind:pronounce="onPronounce" bind:setMastery="onSetMastery" data-index="{{index}}" />
+      lazyMode="{{lazyMode}}" exampleSentence="{{item.sentence}}" translationVisible="{{!hideTranslation}}" sentenceTranslation="{{item.sentenceTranslation}}" masteryLevel="{{item.lastGrade}}" isEvaluate="{{item.evaluated}}" bind:delete="onDelete" bind:pronounce="onPronounce" bind:setMastery="onSetMastery" data-index="{{index}}" />
     </block>
   </view>
   <van-toast id="van-toast" />

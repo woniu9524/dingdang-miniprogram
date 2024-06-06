@@ -5,10 +5,10 @@
         <div>
         </div>
       </div>
-      <span class="text">Generate</span>
+      <span class="text">今日阅读</span>
     </button>
     <button class="boton-elegante" bindtap="viewHistory">
-      <span class="text">History</span>
+      <span class="text">历史记录</span>
     </button>
   </view>
   <view class="spinner" wx:if="{{loading}}"></view>
